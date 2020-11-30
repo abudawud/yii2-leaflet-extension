@@ -100,7 +100,7 @@ class Map extends Widget
         unset($clientOptions['zoom']);
 
         $options = empty($clientOptions) ? '{}' : Json::encode($clientOptions, LeafLet::JSON_OPTIONS);
-        array_unshift($js, "var $name = L.map('$id', $options);");
+        array_unshift($js, "$name = L.map('$id', $options);");
         if ($this->leafLet->getTileLayer() !== null) {
             $js[] = $this->leafLet->getTileLayer()->encode();
         }
